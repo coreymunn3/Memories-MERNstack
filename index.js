@@ -5,13 +5,12 @@ const connectDB = require('./config/db');
 const postsRouter = require('./routes/posts');
 
 const app = express();
-// app routes
-app.use('/posts', postsRouter);
-
 // general setup
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
+// app routes
+app.use('/posts', postsRouter);
 
 const CONNECTION_URL =
   'mongodb+srv://coreymunn3:Sherm@n5@cluster0.pxasv.mongodb.net/test?retryWrites=true&w=majority';

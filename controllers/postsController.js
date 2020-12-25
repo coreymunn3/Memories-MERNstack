@@ -10,7 +10,7 @@ const getPosts = async (req, res) => {
   }
 };
 
-const createPosts = async (req, res) => {
+const createPost = async (req, res) => {
   const post = req.body;
   const newPost = new PostMessage(post);
   try {
@@ -23,5 +23,5 @@ const createPosts = async (req, res) => {
 
 module.exports = {
   getPosts,
-  createPosts,
+  createPost,
 };
