@@ -1,4 +1,4 @@
-// import everything from api for interactions with DB
+// import everything from api for CRUD
 import * as api from '../api';
 
 // action creators with thunk

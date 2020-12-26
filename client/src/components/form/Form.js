@@ -14,7 +14,7 @@ const Form = () => {
     creator: '',
     title: '',
     message: '',
-    tage: '',
+    tags: '',
     selectedFile: '',
   });
 
