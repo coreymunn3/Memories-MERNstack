@@ -9,7 +9,7 @@ const path = require('path');
 const app = express();
 dotenv.config();
 // connect the DB
-connectDB(process.env.CONNECTION_URL, PORT);
+connectDB(process.env.CONNECTION_URL);
 // general setup
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
