@@ -10,6 +10,7 @@ import Form from './components/form/Form';
 import memories from './images/memories.png';
 // styles
 import useStyles from './styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const App = () => {
   const classes = useStyles();
@@ -20,12 +21,21 @@ const App = () => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
+  // Theme for custom title font
+  const themeCursive = createMuiTheme({
+    typography: {
+      fontFamily: ['Yellowtail', 'cursive'].join(','),
+    },
+  });
+
   return (
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography className={classes.heading} variant='h2' align='center'>
-          Memories
-        </Typography>
+        <ThemeProvider theme={themeCursive}>
+          <Typography className={classes.heading} variant='h3' align='center'>
+            Memories
+          </Typography>
+        </ThemeProvider>
         <img
           className={classes.image}
           src={memories}
@@ -35,11 +45,17 @@ const App = () => {
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justify='space-between' alignItems='stretch'>
-            <Grid item xs={12} sm={7}>
+          <Grid
+            className={classes.mainContainer}
+            container
+            justify='space-between'
+            alignItems='stretch'
+            spacing={3}
+          >
+            <Grid item xs={12} sm={7} md={6}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} md={6}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
