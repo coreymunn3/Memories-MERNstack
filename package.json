@@ -1,7 +1,7 @@
 {
   "name": "memories-jsmastery",
   "version": "1.0.0",
-  "description": "",
+  "description": "Memories saving app",
   "main": "index.js",
   "type": "module",
   "scripts": {
