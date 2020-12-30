@@ -17,16 +17,11 @@ app.use('/posts', postsRouter);
 
 // Serve static assets in production build
 if (process.env.NODE_ENV === 'production') {
-  // set static folder
+  //set static folder
   app.use(express.static('client/build'));
-  // prod home page loads static build index.html
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  );
 }
-// build mode
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
