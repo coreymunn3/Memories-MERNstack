@@ -14,10 +14,6 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 // app routes
 app.use('/posts', postsRouter);
-// greeting route
-app.get('/', (req, res) => {
-  res.send('Hello and Welcome to Memories API');
-});
 
 // Serve static assets in production build
 if (process.env.NODE_ENV === 'production') {
